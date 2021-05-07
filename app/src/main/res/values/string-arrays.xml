@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="operations">
+        <item>Basic search card</item>
+        <item>M1</item>
+        <item>CPU</item>
+        <item>PSAM</item>
+        <item>15693</item>
+    </array>
+
+</resources>

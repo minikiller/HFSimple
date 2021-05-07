@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">新松物联-SR</string>
+    <string name="more_operation">更多</string>
+    <string name="current_version">版本号: </string>
+    <string name="finish_date">修改时间: </string>
+    <string name="about_soft">关于软件</string>
+    <string name="cancle">取消</string>
+    <string name="please_press_again_exit">再按一次退出程序</string>
+    <string name="basic_search">基本寻卡</string>
+    <string name="m1">M1</string>
+    <string name="cpu">CPU</string>
+    <string name="psam">PSAM</string>
+    <string name="iso15693">15693</string>
+    <string name="start_search_card">开始寻卡</string>
+    <string name="stop_search_card">停止寻卡</string>
+    <string name="clear">清空</string>
+
+
+    <string name="no_card_search">无卡可寻</string>
+    <string name="please_search_card">请先寻卡</string>
+    <string name="sn">SN</string>
+    <string name="uid">UID</string>
+    <string name="card_type">Card type</string>
+    <string name="count">Count</string>
+    <string name="sector">扇区</string>
+    <string name="block">块</string>
+    <string name="password_a">Key A</string>
+    <string name="password_b">Key B</string>
+    <string name="password">密钥</string>
+    <string name="readData">读数据</string>
+    <string name="writeData">写数据</string>
+    <string name="auth">认证</string>
+    <string name="findcard">寻卡</string>
+    <string name="read">读块</string>
+    <string name="write">写块</string>
+    <string name="exit">退出</string>>
+    <string name="please_input_right_key">请输入正确的密钥</string>
+    <string name="device_exception">设备异常</string>
+    <string name="auth_success">认证成功</string>
+    <string name="auth_fail">认证失败</string>
+    <string name="please_auth">请先认证，再操作</string>
+    <string name="read_fail">读失败</string>
+    <string name="read_success">读成功</string>
+    <string name="please_16_byte">请输入16字节十六进制数据</string>
+    <string name="write_success">写成功</string>
+    <string name="write_fail">写失败</string>
+    <string name="findCardCount">卡数量:</string>
+    <string name="selectCardUID">选择卡:</string>
+    <string name="blocks">块数量:</string>
+    <string name="singleBlockLen">单独块长度:</string>
+    <string name="selectBlock">选择块:</string>
+    <string name="getCardInfo">获取卡信息</string>
+
+    <string name="search_card_fail">寻卡失败或无卡</string>
+    <string name="please_input_right_data">请输入4字节十六进制数据</string>
+
+    <string name="serialport">串口号:</string>
+    <string name="buadrate">波特率:</string>
+    <string name="power">供电:</string>
+    <string name="set">设置</string>
+    <string name="settings">设置</string>
+    <string name="set_success">设置成功</string>
+    <string name="postSymbol">结束符:</string>
+
+</resources>
+
