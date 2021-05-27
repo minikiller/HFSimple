@@ -22,15 +22,15 @@ import java.util.List;
  */
 public class Iso15693Activity extends MyBaseActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
-    private EditText editCardCount;
+//    private EditText editCardCount;
     private EditText editWrite;
     private EditText editTips;
-    private TextView tvBlocks;
-    private TextView tvSingleBlockLen;
-    private Spinner spinnerSelectCard;
+//    private TextView tvBlocks;
+//    private TextView tvSingleBlockLen;
+//    private Spinner spinnerSelectCard;
     //    private Spinner spinnerBlock;
     private Button btnWrite;
-    private Button btnSearch;
+//    private Button btnSearch;
 //    private Button btnGetCardInfo;
     private Button btnRead;
     private Button btnClear;
@@ -61,39 +61,39 @@ public class Iso15693Activity extends MyBaseActivity implements View.OnClickList
 
     private void initView() {
         editTips = (EditText) findViewById(R.id.editTextInfo);
-        tvBlocks = (TextView) findViewById(R.id.editTextBlocks);
-        tvSingleBlockLen = (TextView) findViewById(R.id.editTextSingleBlockLen);
-        editCardCount = (EditText) findViewById(R.id.editTextFindCardCount);
+//        tvBlocks = (TextView) findViewById(R.id.editTextBlocks);
+//        tvSingleBlockLen = (TextView) findViewById(R.id.editTextSingleBlockLen);
+//        editCardCount = (EditText) findViewById(R.id.editTextFindCardCount);
         editWrite = (EditText) findViewById(R.id.editTextWriteData15693);
 //        spinnerBlock = (Spinner) findViewById(R.id.spinnerBlock);
-        spinnerSelectCard = (Spinner) findViewById(R.id.spinnerSelectCard);
+//        spinnerSelectCard = (Spinner) findViewById(R.id.spinnerSelectCard);
         btnClear = (Button) findViewById(R.id.buttonClear15693);
-        btnSearch = (Button) findViewById(R.id.buttonFind15693);
+//        btnSearch = (Button) findViewById(R.id.buttonFind15693);
 //        btnGetCardInfo = (Button) findViewById(R.id.buttonGetCardInfo);
         btnRead = (Button) findViewById(R.id.buttonRead15693);
         btnWrite = (Button) findViewById(R.id.buttonWriteData15693);
 
         btnClear.setOnClickListener(this);
-        btnSearch.setOnClickListener(this);
+//        btnSearch.setOnClickListener(this);
 //        btnGetCardInfo.setOnClickListener(this);
         btnRead.setOnClickListener(this);
         btnWrite.setOnClickListener(this);
-        spinnerSelectCard.setOnItemSelectedListener(this);
+//        spinnerSelectCard.setOnItemSelectedListener(this);
 //        spinnerBlock.setOnItemSelectedListener(this);
         //sunlf added
-        btnSearch.setFocusable(true);
-        btnSearch.requestFocus();
-        btnSearch.setFocusableInTouchMode(true);
+        btnRead.setFocusable(true);
+        btnRead.requestFocus();
+        btnRead.setFocusableInTouchMode(true);
 
     }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         switch (view.getId()) {
-            case R.id.spinnerSelectCard:
-                uid = list15693.get(i).getUid();
-                flag = list15693.get(i).getFlags();
-                break;
+//            case R.id.spinnerSelectCard:
+//                uid = list15693.get(i).getUid();
+//                flag = list15693.get(i).getFlags();
+//                break;
 //            case R.id.spinnerBlock:
 //                selectBlock = i;
 //                break;
@@ -109,9 +109,9 @@ public class Iso15693Activity extends MyBaseActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.buttonFind15693:
-                search();
-                break;
+//            case R.id.buttonFind15693:
+//                search();
+//                break;
 //            case R.id.buttonGetCardInfo:
 //                getCardInfo();
 //                break;
@@ -133,31 +133,31 @@ public class Iso15693Activity extends MyBaseActivity implements View.OnClickList
         list15693 = hfReader.search15693Card();
         if (list15693 != null && !list15693.isEmpty()) {
             Util.play(1, 0);
-            editCardCount.setText("" + list15693.size());
-            listUid = new ArrayList<>();
+//            editCardCount.setText("" + list15693.size());
+//            listUid = new ArrayList<>();
             for (ISO15693CardInfo info : list15693) {
                 uid = info.getUid();
-                listUid.add(Tools.Bytes2HexString(uid, uid.length));
-                editTips.append("UID:0x" + Tools.Bytes2HexString(uid, uid.length) + "\n");
-                editTips.append("FLAGS: " + info.getFlags() + "\n");
-                editTips.append("DSFID: " + info.getDsfid() + "\n\n");
+//                listUid.add(Tools.Bytes2HexString(uid, uid.length));
+//                editTips.append("UID:0x" + Tools.Bytes2HexString(uid, uid.length) + "\n");
+//                editTips.append("FLAGS: " + info.getFlags() + "\n");
+//                editTips.append("DSFID: " + info.getDsfid() + "\n\n");
             }
-            spinnerSelectCard.setAdapter(new ArrayAdapter<String>(this,
-                    android.R.layout.simple_spinner_dropdown_item, listUid));
+//            spinnerSelectCard.setAdapter(new ArrayAdapter<String>(this,
+//                    android.R.layout.simple_spinner_dropdown_item, listUid));
 
-            spinnerSelectCard.setSelection(0);
-            spinnerSelectCard.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    uid = list15693.get(i).getUid();
-                    flag = list15693.get(i).getFlags();
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
-
-                }
-            });
+//            spinnerSelectCard.setSelection(0);
+//            spinnerSelectCard.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                @Override
+//                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                    uid = list15693.get(i).getUid();
+//                    flag = list15693.get(i).getFlags();
+//                }
+//
+//                @Override
+//                public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                }
+//            });
             getCardInfo();
         } else {
             toastMsg(getResources().getString(R.string.search_card_fail));
@@ -174,18 +174,18 @@ public class Iso15693Activity extends MyBaseActivity implements View.OnClickList
 //            Util.play(1, 0);
             List<String> list = new ArrayList<>();
             int blockCount = picc.getBlockCount(); //区块数目
-            tvBlocks.setText("" + blockCount);
-            tvSingleBlockLen.setText("" + (picc.getBlockLen()));
+//            tvBlocks.setText("" + blockCount);
+//            tvSingleBlockLen.setText("" + (picc.getBlockLen()));
 
-            editTips.append("UID:0x" + Tools.Bytes2HexString(picc.getUid(), picc.getUid().length) + "\n");
-            editTips.append("FLAGS: " + picc.getFlag() + "\n");
-            editTips.append("DSFID: " + picc.getDsfid() + "\n");
-            editTips.append("AFI: " + picc.getAfi() + "\n");
-            editTips.append("ICReference: " + picc.getICReference() + "\n");
-            editTips.append("InfoFlag: " + picc.getInfoFlag() + "\n\n");
-            for (int i = 0; i < blockCount; i++) {
-                list.add("" + i);
-            }
+//            editTips.append("UID:0x" + Tools.Bytes2HexString(picc.getUid(), picc.getUid().length) + "\n");
+//            editTips.append("FLAGS: " + picc.getFlag() + "\n");
+//            editTips.append("DSFID: " + picc.getDsfid() + "\n");
+//            editTips.append("AFI: " + picc.getAfi() + "\n");
+//            editTips.append("ICReference: " + picc.getICReference() + "\n");
+//            editTips.append("InfoFlag: " + picc.getInfoFlag() + "\n\n");
+//            for (int i = 0; i < blockCount; i++) {
+//                list.add("" + i);
+//            }
 //            spinnerBlock.setAdapter(new ArrayAdapter<String>(this,
 //                    android.R.layout.simple_spinner_dropdown_item, list));
 //            spinnerBlock.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -228,10 +228,11 @@ public class Iso15693Activity extends MyBaseActivity implements View.OnClickList
 
         if (readData != null) {
             Util.play(1, 0);
-            editTips.append("UID:0x" + Tools.Bytes2HexString(uid, uid.length) + "\n");
+//            editTips.append("UID:0x" + Tools.Bytes2HexString(uid, uid.length) + "\n");
 //            editTips.append("Read Hex data:0x" + Tools.Bytes2HexString(readData, readData.length) + "\n");
-            editTips.append("Read Normal data:" + Tools.decodeUTF8(readData) + "\n\n");
-
+            String value=Tools.decodeUTF8(readData);
+            editTips.append("Data:" + value + "\n\n");
+            editWrite.setText(value);
         }else{
             toastMsg(getResources().getString(R.string.please_search_card));
             return;
