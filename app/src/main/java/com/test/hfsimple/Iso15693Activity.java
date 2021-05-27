@@ -1,6 +1,7 @@
 package com.test.hfsimple;
 
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,6 +26,7 @@ public class Iso15693Activity extends MyBaseActivity implements View.OnClickList
 //    private EditText editCardCount;
     private EditText editWrite;
     private EditText editTips;
+    private boolean isRegister=false;
 //    private TextView tvBlocks;
 //    private TextView tvSingleBlockLen;
 //    private Spinner spinnerSelectCard;
@@ -45,6 +47,8 @@ public class Iso15693Activity extends MyBaseActivity implements View.OnClickList
     private List<ISO15693CardInfo> list15693 = null;
     private List<String> listUid = null;
     private ISO15693PICC picc = null;
+    private String androidId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +88,31 @@ public class Iso15693Activity extends MyBaseActivity implements View.OnClickList
         btnRead.setFocusable(true);
         btnRead.requestFocus();
         btnRead.setFocusableInTouchMode(true);
+
+
+        androidId = String
+                .format("%16s", Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID))
+                .replace(' ', '0');
+//        String reg=Register.encrypt(androidId);
+        String reg=para.getRegister();
+//        editWrite.setText(androidId+":"+reg);
+        para.saveAndroidId(androidId);
+//        para.saveRegister(reg);
+        String valid=Register.decrypt(reg);
+        if(androidId.equals((valid))){
+            isRegister=true;
+            editTips.append("版本已注册！ \n\n");
+            btnRead.setEnabled(true);
+            btnWrite.setEnabled(true);
+        }else{
+            isRegister=false;
+            editTips.append("版本未注册,请尽快注册！ \n\n");
+            editTips.append("安卓ID: "+androidId);
+            btnRead.setEnabled(false);
+            btnWrite.setEnabled(false);
+        }
+
+//        getResources().getString(R.string.please_input_right_data);
 
     }
 

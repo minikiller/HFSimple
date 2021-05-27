@@ -22,6 +22,9 @@ public class SettingsActivity extends MyBaseActivity {
     private TextView tvTips ;
     private EditText viewSymbol ;
 
+    private TextView tvAndroid ;
+    private EditText editRegister ;
+
 
     private MyApplication mapp ;
     private HFReader hfReader ;
@@ -54,11 +57,17 @@ public class SettingsActivity extends MyBaseActivity {
         btnSet = (Button) findViewById(R.id.buttonSettings) ;
         tvTips = (TextView) findViewById(R.id.textSettingTips) ;
         viewSymbol= (EditText) findViewById(R.id.textViewSymbol) ;
+        tvAndroid = (TextView) findViewById(R.id.textViewAndroid) ;
+        editRegister= (EditText) findViewById(R.id.editTextRegister) ;
         spinnerPower.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, powers));
         spinnerSerial.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, serials));
         serial = para.getSerial() ;
         power = para.getPower() ;
         symbol=para.getSymbol();
+
+        tvAndroid.setText(para.getAndroidId());
+        editRegister.setText(para.getRegister());
+
         if(serial.equals("com0")){
             spinnerSerial.setSelection(0);
             serialInt = 0 ;
@@ -177,6 +186,7 @@ public class SettingsActivity extends MyBaseActivity {
                 para.savePower(power);
                 para.saveSerial(serial);
                 para.saveSymbol(viewSymbol.getText().toString());
+                para.saveRegister(editRegister.getText().toString());
                 toastMsg(getResources().getString(R.string.set_success));
             }
         });

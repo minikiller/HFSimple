@@ -22,6 +22,36 @@ public class ParaSave {
 
     }
 
+    public void saveAndroidId(String symbol){
+        SharedPreferences shared = context.getSharedPreferences("para", Context.MODE_PRIVATE) ;
+        SharedPreferences.Editor editor = shared.edit() ;
+        editor.putString("android", symbol) ;
+        editor.commit() ;
+
+    }
+    public String getAndroidId() {
+        String symbol = "" ;
+        SharedPreferences shared = context.getSharedPreferences("para", Context.MODE_PRIVATE) ;
+        symbol = shared.getString("android", "") ;
+        return symbol ;
+    }
+
+    public void saveRegister(String symbol){
+        SharedPreferences shared = context.getSharedPreferences("para", Context.MODE_PRIVATE) ;
+        SharedPreferences.Editor editor = shared.edit() ;
+        editor.putString("register", symbol) ;
+        editor.commit() ;
+
+    }
+
+    public String getRegister() {
+        String symbol = "" ;
+        SharedPreferences shared = context.getSharedPreferences("para", Context.MODE_PRIVATE) ;
+        symbol = shared.getString("register", "") ;
+        return symbol ;
+    }
+
+
     public void saveSymbol(String symbol){
         SharedPreferences shared = context.getSharedPreferences("para", Context.MODE_PRIVATE) ;
         SharedPreferences.Editor editor = shared.edit() ;
@@ -29,6 +59,9 @@ public class ParaSave {
         editor.commit() ;
 
     }
+
+
+
 
     public String getSerial() {
         String serial = "" ;

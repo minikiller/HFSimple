@@ -53,6 +53,8 @@
 
     <string name="search_card_fail">寻卡失败或无卡</string>
     <string name="please_input_right_data">请输入4字节十六进制数据</string>
+    <string name="register_code_info">注册码:</string>
+    <string name="android_id_info">安卓ID:</string>
 
     <string name="serialport">串口号:</string>
     <string name="buadrate">波特率:</string>

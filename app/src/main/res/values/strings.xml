@@ -53,6 +53,8 @@
 
     <string name="search_card_fail">search card fail or no card</string>
     <string name="please_input_right_data">please input 4bytes HEX data </string>
+    <string name="register_code_info">register code:</string>
+    <string name="android_id_info">android ID:</string>
 
     <string name="serialport">Serial port:</string>
     <string name="buadrate">Baud rate:</string>
